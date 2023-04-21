@@ -1,6 +1,6 @@
 <?php
 
-//creation de la class FilmType
+//creation de la class FilmType relié à chaque film
 class FilmType  
     {
         // attributes privées pour la class FilmType

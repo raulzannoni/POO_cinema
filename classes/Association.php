@@ -1,6 +1,6 @@
 <?php
 
-//creation de la class associative (Acteur - Role) Association
+//creation de la class associative (Acteur - Role) Association  
 class Association
     {
 

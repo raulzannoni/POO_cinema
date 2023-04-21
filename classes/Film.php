@@ -1,6 +1,6 @@
 <?php
 
-//creation de la class Film
+//creation de la class Film initial
 class Film
     {  
         //attributes privées de la class film
@@ -9,7 +9,7 @@ class Film
         private int $_durée;
         private Director $_director;
 
-        private array $_associations;
+        private array $_associations;    
 
         private FilmType $_filmType;
 

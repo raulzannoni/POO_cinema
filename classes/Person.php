@@ -1,6 +1,6 @@
 <?php
 
-//creation de la class Person
+//creation de la class Person - parent de Director et Actor
 class Person
     {  
 
