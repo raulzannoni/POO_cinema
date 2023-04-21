@@ -27,7 +27,7 @@ class Director extends Person
                                 {
                                     $result .=  strval($key + 1).") ".$film.
                                                 ", sortie en ".$film->getDateSortie()->format('Y').
-                                                ", genre <br>";//.$film->_filmType->getGenre()."<br>";
+                                                ", genre ".$film->getFilmType()."<br>";
                                 }
                 $result .=  "<br>******************<br><br>";
                 //$this->_films->_f

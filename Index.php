@@ -21,7 +21,6 @@ spl_autoload_register(function ($class_name)
     $Blade_Runner = new Film("Blade Runner", "01-01-1982", 111, $RidleyScott, $SF);
     $Gladiator = new Film("Gladiator", "01-01-2000", 155, $RidleyScott, $Drama);
 
-
     $RidleyScott->getFilmographie();
 
     $SF->getFilms();  
