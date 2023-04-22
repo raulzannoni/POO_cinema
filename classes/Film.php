@@ -69,7 +69,11 @@ class Film
         //methode pour ajouter un association (FILM - ACTOR - ROLE) dans l'objet film
         public function addAssociation(Association $new_association)
             {
-                $this->_associations[] = $new_association;
+                //vérifier que le film correspond à l’association spécifique de ce film
+                if($new_association->getFilm() == $this)
+                    {
+                        $this->_associations[] = $new_association;
+                    }
             }
         
         //methode pour imprimer l'objet
