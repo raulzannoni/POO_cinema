@@ -38,6 +38,7 @@ spl_autoload_register(function ($class_name)
     $Tom_Hanks = new Actor("Hanks", "Tom", "homme", "09-07-1956");
     $Russel_Crowe = new Actor("Crowe", "Russel", "homme", "07-04-1964");
     $Harrison_Ford = new Actor("Ford", "Harrison", "homme", "13-07-1942");
+    $Sean_Young = new Actor("Young", "Sean", "femme", "20-11-1959");
 
 
     //creation de les roles
@@ -48,9 +49,11 @@ spl_autoload_register(function ($class_name)
     $John_Nash = new Role("John Nash");
     $Rick_Deckard = new Role("Rick Deckard");
     $Indiana_Jones = new Role("Indiana Jones");
+    $Rachel = new Role("Rachel");
 
     //creation de les associations FILM, ACTEUR, ROLE
-    $association_Balde_Runner_1 = new Association($Film_Blade_Runner, $Harrison_Ford, $Rick_Deckard);
+    $association_Blade_Runner_1 = new Association($Film_Blade_Runner, $Harrison_Ford, $Rick_Deckard);
+    $association_Blade_Runner_2 = new Association($Film_Blade_Runner, $Sean_Young, $Rachel);
 
     $association_Gladiator_1 = new Association($Film_Gladiator, $Russel_Crowe, $Maximus);
 
@@ -64,10 +67,20 @@ spl_autoload_register(function ($class_name)
 
     $association_Beatiful_Mind_1 = new Association($Film_Beatiful_Mind, $Russel_Crowe, $John_Nash);
 
+    //info de chaque acteurs
+    $Tom_Hanks->getFilmographie();
+    $Russel_Crowe->getFilmographie();
+    $Harrison_Ford->getFilmographie();
+
+    //echo count($Film_Blade_Runner->getAssociations());
+
+    //info de chaque film
+    $Film_Blade_Runner->getInfo();
+    $Film_Forrest_Gump->getInfo();
+    $Film_Gladiator->getInfo();
 
 
-
-    //info de les filmographies de chque realisateur
+    //info de les filmographies de chaque realisateur
     $Ridley_Scott->getFilmographie();
     $Steven_Spielberg->getFilmographie();
     $Robert_Zemeckis->getFilmographie();
@@ -76,5 +89,10 @@ spl_autoload_register(function ($class_name)
     //info de les films appartenant à chaque genre de film
     $SF->getFilms(); 
     $Drama->getFilms(); 
+
+    //info sur les actuers qui ont joué les roles suivantes:
+    $Indiana_Jones->getActors();
+    $John_Miller->getActors();
+
 
 ?>

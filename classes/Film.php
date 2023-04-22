@@ -64,7 +64,11 @@ class Film
             {
                 return $this->_filmType;
             }
-
+        
+        public function getAssociations()
+            {
+                return $this->_associations;
+            }
 
         //methode pour ajouter une association (FILM - ACTOR - ROLE) dans l'objet film
         public function addAssociation(Association $new_association)
@@ -91,8 +95,8 @@ class Film
                             Le casting de ".$this." est le suivante:<br><br>"; 
                             foreach($this->_associations as $key => $association)
                                 {
-                                    $result .=  strval($key + 1).") ".$association->_actor->__toString().
-                                                ", dans le role de ".$association->_role->toString()."; <br>";
+                                    $result .=  strval($key + 1).") ".$association->getActor().
+                                                ", dans le role de ".$association->getRole()."; <br>";
                                 }
                 $result .=  "<br>***************************************************************<br><br>";
             
