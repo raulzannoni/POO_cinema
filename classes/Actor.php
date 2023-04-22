@@ -14,10 +14,10 @@ class Actor extends Person
                 $this->_associations = [];
             }
 
-        //methode pour ajouter une association (FILM - ACTOR - ROLE) dans l'objet Actor
+        //methode pour ajouter une association (FILM - ACTOR - ROLE) dans l'objet Acteur
         public function addAssociation(Association $new_association)
             {
-                //vérifier que l'actor correspond à l’association spécifique de ce film
+                //vérifier que l'actor correspond à l’association spécifique de ce acteur
                 if($new_association->getActor() == $this)
                 {
                     $this->_associations[] = $new_association;

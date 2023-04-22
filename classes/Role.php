@@ -5,13 +5,13 @@ class Role
     {   
         //attributes privées de la class Role
         private string $_role;
-        private array $_actors;
+        private array $_associations;
 
         //definition de le costructor de la class Role
         public function __construct(string $role)
             {
                 $this->_role = $role;
-                $this->_actors = [];
+                $this->_associations = [];
 
             }
 
@@ -26,10 +26,14 @@ class Role
                 return $this->_role;
             }
 
-        //function pour ajouter un actor à l'objet Role
-        public function addActor(Film $new_actor)
+        //function pour ajouter une association à l'objet Role
+        public function addAssociation(Association $new_association)
             {
-                $this->_actors[]= $new_actor;
+                //vérifier que le role correspond à l’association spécifique de ce role
+                if($new_association->getRole() == $this)
+                    {
+                        $this->_associations[]= $new_association;
+                    }
             }
     }
 
