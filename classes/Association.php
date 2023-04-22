@@ -16,6 +16,9 @@ class Association
                 $this->_role = $role;
                 //chque fois un association est instancié, l'association est ajouté à le film correspondant
                 $this->_film->addAssociation($this);
+                //chque fois un association est instancié, l'association est ajouté à l'actor correspondant
+                $this->_actor->addAssociation($this);
+
             }
         
         //setter pour chaque attribute
