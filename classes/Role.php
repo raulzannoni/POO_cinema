@@ -35,6 +35,27 @@ class Role
                         $this->_associations[]= $new_association;
                     }
             }
+
+        //creation de le methode toString pour afficher le role
+        public function __toString()
+            {
+                return $this->_role;
+            }
+
+        //methode pour afficher les acteurs qui ont joué ce role
+        public function getActors()
+            {
+                $result =   "<br>***************************************************************<br><br>".
+                            "Le role de ".$this." a été joué par:<br><br>"; 
+                            foreach($this->_associations as $key => $association)
+                                {
+                                    $result .=  strval($key + 1).") ".$association->getActor().
+                                                " dans le film ".$association->getFilm()."<br>";
+                                }
+                $result .=  "<br>***************************************************************<br><br>";
+            
+                echo $result;
+            }
     }
 
 

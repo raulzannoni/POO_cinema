@@ -25,7 +25,20 @@ class Actor extends Person
                 
             }
         
-    
+        //methode pour afficher la filmographie de l'acteur
+        public function getFilmographie()
+            {
+                $result =   "<br>***************************************************************<br><br>".
+                            $this." est un acteur qui a joué les films suivantes:<br><br>"; 
+                            foreach($this->_associations as $key => $association)
+                                {
+                                    $result .=  strval($key + 1).") ".$association->getFilm().
+                                                " dans le role de ".$association->getRole()."<br>";
+                                }
+                $result .=  "<br>***************************************************************<br><br>";
+            
+                echo $result;
+            }
 
     
      
