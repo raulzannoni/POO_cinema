@@ -82,6 +82,23 @@ class Film
                 return $this->_titre;
             }
 
+        //methode pour afficher les infos de le film
+        public function getInfo()
+            {
+                $result =   "<br>***************************************************************<br><br>".
+                            $this." est un film ".$this->_filmType->getGenre()." réalisé par le réalisateur "
+                            .$this->_director->__toString().", sorti dans l'année ".$this->getDateSortie()->format('Y').".<br><br>
+                            Le casting de ".$this." est le suivante:<br><br>"; 
+                            foreach($this->_associations as $key => $association)
+                                {
+                                    $result .=  strval($key + 1).") ".$association->_actor->__toString().
+                                                ", dans le role de ".$association->_role->toString()."; <br>";
+                                }
+                $result .=  "<br>***************************************************************<br><br>";
+            
+                echo $result;
+            }
+
         
     }
 
