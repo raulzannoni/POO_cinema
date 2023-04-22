@@ -39,7 +39,7 @@ spl_autoload_register(function ($class_name)
     $Film_Beatiful_Mind = new Film("Un homme d'exception", "01-01-2001", 135, $Ron_Howard, $Drama);
     $Film_Spiderman = new Film("Spider-Man", "01-01-2000", 121, $Sam_Raimi, $Action);
     $Film_Amazing_Spiderman = new Film("The Amazing Spider-Man", "01-01-2012", 136, $Marc_Webb, $Action);
-    //$Film_Spiderman_Far_from_home = new Film("Spider-Man: Far from Home", "01,01-2017", 133, $John_Watts, $Action);
+    $Film_Spiderman_Homecoming = new Film("Spide-Man: Homecoming", "01-01-2017", 133, $John_Watts, $Action);
 
 
     //creation de les acteurs
@@ -83,7 +83,7 @@ spl_autoload_register(function ($class_name)
 
     $association_Amazing_Spiderman_1 = new Association($Film_Amazing_Spiderman, $Andrew_Garfield, $Spiderman);
 
-    //$association_Spiderman_Far_from_home_1 = new Association($Film_Spiderman_Far_from_home, $Tom_Holland, $Spiderman);
+    $association_Spiderman_Homecoming_1 = new Association($Film_Spiderman_Homecoming, $Tom_Holland, $Spiderman);
 
     //info de chaque acteurs
     $Tom_Hanks->getFilmographie();
