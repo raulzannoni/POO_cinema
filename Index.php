@@ -120,5 +120,17 @@ spl_autoload_register(function ($class_name)
     $John_Miller->getActors();
     $Spiderman->getActors();
 
+    /* tries of getting synopsis from specifief url
+    $home = file_get_contents('https://fr.wikipedia.org/wiki/Spider-Man_(film)#Synopsis');
+    $start = stripos($home, 'id="Synopsis"');
+
+    $end = stripos($home, '<h2>', $offset = $start);
+
+    $length = $end - $start;
+
+    $homeSection = substr($home, $start, $length);
+
+    echo $homeSection;
+    */
 
 ?>
