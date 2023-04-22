@@ -24,6 +24,8 @@ class Actor extends Person
                 }
                 
             }
+        
+    
 
     
      
