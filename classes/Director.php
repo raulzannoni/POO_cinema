@@ -30,7 +30,7 @@ class Director extends Person
                                                 ", genre ".$film->getFilmType()."<br>";
                                 }
                 $result .=  "<br>***************************************************************<br><br>";
-                //$this->_films->_f
+            
                 echo $result;
             }
 
