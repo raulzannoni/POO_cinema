@@ -18,7 +18,7 @@ class Director extends Person
                 $this->_films[]= $new_film;
             }
         
-        //methode pour afficher la filmographie de le directeur, corriger le genre
+        //methode pour afficher la filmographie de le directeur
         public function getFilmographie()
             {
                 $result =   "<br>***************************************************************<br><br>".
