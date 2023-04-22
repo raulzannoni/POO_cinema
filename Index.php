@@ -17,7 +17,7 @@ spl_autoload_register(function ($class_name)
 
     
     $RidleyScott = new Director("Scott", "Ridley", "homme", "30-11-1937");
-    $StevenSpielberg = new Director("Spielberg", "Lucas", "homme", "18-12-1946");
+    $StevenSpielberg = new Director("Spielberg", "Steven", "homme", "18-12-1946");
     $RobertZemeckis = new Director("Zemeckis", "Robert", "homme", "14-05-1951");
 
 

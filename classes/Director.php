@@ -22,7 +22,7 @@ class Director extends Person
         public function getFilmographie()
             {
                 $result =   "<br>***************************************************************<br><br>".
-                            $this." est un réalisateur qui a realisé le films suivantes:<br><br>"; 
+                            $this." est un réalisateur qui a realisé les films suivantes:<br><br>"; 
                             foreach($this->_films as $key => $film)
                                 {
                                     $result .=  strval($key + 1).") ".$film.
