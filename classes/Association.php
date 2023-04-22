@@ -14,10 +14,12 @@ class Association
                 $this->_film = $film;
                 $this->_actor = $actor;
                 $this->_role = $role;
-                //chque fois un association est instancié, l'association est ajouté à le film correspondant
+                //chaque fois un association est instancié, l'association est ajouté à le film correspondant
                 $this->_film->addAssociation($this);
-                //chque fois un association est instancié, l'association est ajouté à l'actor correspondant
+                //chaque fois un association est instancié, l'association est ajouté à l'actor correspondant
                 $this->_actor->addAssociation($this);
+                //chaque fois un association est instancié, l'association est ajouté à le role correspondant
+                $this->_role->addAssociation($this);
 
             }
         
