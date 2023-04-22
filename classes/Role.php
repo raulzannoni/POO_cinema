@@ -32,7 +32,7 @@ class Role
                 //vérifier que le role correspond à l’association spécifique de ce role
                 if($new_association->getRole() == $this)
                     {
-                        $this->_associations[]= $new_association;
+                        $this->_associations[] = $new_association;
                     }
             }
 

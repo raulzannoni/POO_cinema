@@ -48,8 +48,8 @@ spl_autoload_register(function ($class_name)
     $Harrison_Ford = new Actor("Ford", "Harrison", "homme", "13-07-1942");
     $Sean_Young = new Actor("Young", "Sean", "femme", "20-11-1959");
     $Tobey_Maguire = new Actor("Maguire", "Tobey", "homme", "27-06-1975");
-    //$Andrew_Garfield = new Actor("Garfield", "Andrew", "homme", "20-08-1983");
-    //$Tom_Holland= new Actor("Holland", "Tom", "homme", "01-06-1996");
+    $Andrew_Garfield = new Actor("Garfield", "Andrew", "homme", "20-08-1983");
+    $Tom_Holland= new Actor("Holland", "Tom", "homme", "01-06-1996");
 
 
     //creation de les roles
@@ -81,7 +81,7 @@ spl_autoload_register(function ($class_name)
 
     $association_Spiderman_1 = new Association($Film_Spiderman, $Tobey_Maguire, $Spiderman);
 
-    //$association_Amazing_Spiderman_1 = new Association($Film_Amazing_Spiderman, $Andrew_Garfield, $Spiderman);
+    $association_Amazing_Spiderman_1 = new Association($Film_Amazing_Spiderman, $Andrew_Garfield, $Spiderman);
 
     //$association_Spiderman_Far_from_home_1 = new Association($Film_Spiderman_Far_from_home, $Tom_Holland, $Spiderman);
 
