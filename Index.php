@@ -50,24 +50,32 @@ spl_autoload_register(function ($class_name)
     $Tobey_Maguire = new Actor("Maguire", "Tobey", "homme", "27-06-1975");
     $Andrew_Garfield = new Actor("Garfield", "Andrew", "homme", "20-08-1983");
     $Tom_Holland= new Actor("Holland", "Tom", "homme", "01-06-1996");
-
+    $Joaquin_Phoenix = new Actor("Phoenix", "Joaquin", "homme", "28-10-1974");
+    $Connie_Nielsen = new Actor("Nielsen","Connie","femme","03-07-1965");
+    $Rutger_Hauer = new Actor("Hauer", "Rutger", "homme", "23-01-1944"); 
 
     //creation de les roles
     $John_Miller = new Role("capitaine John H. Miller");
     $Forrest_Gump = new Role ("Forrest Gump");
     $Chuck_Noland = new Role("Chuck Role");
     $Maximus = new Role("Maximus Decimus Meridius");
+    $Commode = new Role("Commode");
+    $Lucilla = new Role("Lucilla");
     $John_Nash = new Role("John Nash");
     $Rick_Deckard = new Role("Rick Deckard");
     $Indiana_Jones = new Role("Indiana Jones");
     $Rachel = new Role("Rachel");
+    $Roy_Batty = new Role("Roy Batty");
     $Spiderman = new Role ("SpiderMan");
 
     //creation de les associations FILM, ACTEUR, ROLE
     $association_Blade_Runner_1 = new Association($Film_Blade_Runner, $Harrison_Ford, $Rick_Deckard);
     $association_Blade_Runner_2 = new Association($Film_Blade_Runner, $Sean_Young, $Rachel);
+    $association_Blade_Runner_3 = new Association($Film_Blade_Runner, $Rutger_Hauer, $Roy_Batty);
 
     $association_Gladiator_1 = new Association($Film_Gladiator, $Russel_Crowe, $Maximus);
+    $association_Gladiator_2 = new Association($Film_Gladiator, $Joaquin_Phoenix, $Commode);
+    $association_Gladiator_3 = new Association($Film_Gladiator, $Connie_Nielsen, $Lucilla);
 
     $association_Indiana_Jones_1 = new Association($Film_Indiana_Jones, $Harrison_Ford, $Indiana_Jones);
 
@@ -90,7 +98,6 @@ spl_autoload_register(function ($class_name)
     $Russel_Crowe->getFilmographie();
     $Harrison_Ford->getFilmographie();
 
-    //echo count($Film_Blade_Runner->getAssociations());
 
     //info de chaque film
     $Film_Blade_Runner->getInfo();
