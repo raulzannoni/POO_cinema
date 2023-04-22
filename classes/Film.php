@@ -66,7 +66,7 @@ class Film
             }
 
 
-        //methode pour ajouter un association (FILM - ACTOR - ROLE) dans l'objet film
+        //methode pour ajouter une association (FILM - ACTOR - ROLE) dans l'objet film
         public function addAssociation(Association $new_association)
             {
                 //vérifier que le film correspond à l’association spécifique de ce film
