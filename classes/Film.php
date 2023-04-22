@@ -64,6 +64,13 @@ class Film
             {
                 return $this->_filmType;
             }
+
+
+        //methode pour ajouter un association (FILM - ACTOR - ROLE) dans l'objet film
+        public function addAssociation(Association $new_association)
+            {
+                $this->_associations[] = $new_association;
+            }
         
         //methode pour imprimer l'objet
         public function __toString()
