@@ -68,9 +68,9 @@ spl_autoload_register(function ($class_name)
 
 
     //info de les filmographies de chque realisateur
-    $RidleyScott->getFilmographie();
-    $StevenSpielberg->getFilmographie();
-    $RobertZemeckis->getFilmographie();
+    $Ridley_Scott->getFilmographie();
+    $Steven_Spielberg->getFilmographie();
+    $Robert_Zemeckis->getFilmographie();
 
 
     //info de les films appartenant à chaque genre de film
