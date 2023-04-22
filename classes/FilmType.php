@@ -42,13 +42,13 @@ class FilmType
         //methode pour afficher le film de le genre relatifs
         public function getFilms()
             {
-                $result =   "<br>******************<br><br>
+                $result =   "<br>***************************************************************<br><br>
                             Le film de genre ".$this." sont les suivantes:<br><br>"; 
                             foreach($this->_films as $key => $film)
                                 {
                                     $result .=  strval($key + 1).") ".$film." <br>";
                                 }
-                $result .=  "<br>******************<br><br>";
+                $result .=  "<br>***************************************************************<br><br>";
                 
                 echo $result;
             }
