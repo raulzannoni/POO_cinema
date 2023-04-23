@@ -39,7 +39,7 @@ spl_autoload_register(function ($class_name)
     $Film_Beatiful_Mind = new Film("Un homme d'exception", "01-01-2001", 135, $Ron_Howard, $Drama);
     $Film_Spiderman = new Film("Spider-Man", "01-01-2000", 121, $Sam_Raimi, $Action);
     $Film_Amazing_Spiderman = new Film("The Amazing Spider-Man", "01-01-2012", 136, $Marc_Webb, $Action);
-    $Film_Spiderman_Homecoming = new Film("Spide-Man: Homecoming", "01-01-2017", 133, $John_Watts, $Action);
+    $Film_Spiderman_Homecoming = new Film("Spider-Man: Homecoming", "01-01-2017", 133, $John_Watts, $Action);
 
 
     //creation de les acteurs
@@ -122,23 +122,32 @@ spl_autoload_register(function ($class_name)
 
 
     $Film_Forrest_Gump->getSynopsis();
+    $Film_Alien->getSynopsis();
+    $Film_Beatiful_Mind->getSynopsis();
 
     // tries of getting synopsis from specifief url
     /*
     $synopsis_string = 'Synopsis">modifier le code</a><span class="mw-editsection-bracket">]</span></span></h2>';
-    
-    $home = file_get_contents('https://fr.wikipedia.org/wiki/Forrest_Gump');
+    $synopsis_string_end = '<span class="mw-headline" id="Fiche_technique">Fiche technique</span>';
+    $home = file_get_contents('https://fr.wikipedia.org/wiki/Alien');
 
     $start = stripos($home, $synopsis_string)+strlen($synopsis_string);
 
-    $end = stripos($home, '<h2>', $start);
+    $end = stripos($home, $synopsis_string_end, $start);
 
     $length = $end - $start;
 
     $homeSection = substr($home, $start, $length);
 
     echo $length; //13940
-    echo $homeSection;
+    if($length>0)
+        {
+            echo $homeSection;
+        }
+        else 
+        {
+            echo "bubu";
+        }
     //*/
 
 ?>

@@ -107,29 +107,54 @@ class Film
         public function getSynopsis()
             {
                 //chaine de debut pour commencer à récupérer le texte demandé
-                $synopsis_string = 'Synopsis">modifier le code</a><span class="mw-editsection-bracket">]</span></span></h2>';
+                $synopsis_string_start = 'Synopsis">modifier le code</a><span class="mw-editsection-bracket">]</span></span></h2>';
+
+                //chaine de fiin pour terminer à récupérer le texte demandé
+                $synopsis_string_end = '<span class="mw-headline" id="Fiche_technique">Fiche technique</span>';
 
                 //chaine adapté à le format wiki à rechercher
                 $film_wiki = str_replace(" ", "_", $this);
-
-                echo $film_wiki;
 
                 //méthode pour prendre tout le contenu de la page Web inséré comme URL dans l'argument
                 $home_wiki_film =file_get_contents('https://fr.wikipedia.org/wiki/'.$film_wiki);
 
                 //position numérique d’où part le synopsis de la page choisie
-                $start = stripos($home_wiki_film, $synopsis_string)+strlen($synopsis_string);
+                $start = stripos($home_wiki_film, $synopsis_string_start)+strlen($synopsis_string_start);
 
                 //position numérique d’où se termine le synopsis de la page choisie
-                $end = stripos($home_wiki_film, '<h2>', $start);
+                $end = stripos($home_wiki_film, $synopsis_string_end, $start);
 
                 //longueur numérique du synopsis de la page choisie
                 $length = $end - $start;
 
-                //titre à  afficher + text synopsis
-                $synopsis = "<h4>Synopsis de le film: ".$this." </h4>";
-                $synopsis .= "<small>".substr($home_wiki_film, $start, $length)."</small>";
-                
+                //controle sur la page
+                if($length>0)
+                    {
+                        //titre à  afficher + text synopsis
+                        $synopsis = "<h4>Synopsis de le film: ".$this." </h4>";
+                        $synopsis .= "<small>".substr($home_wiki_film, $start, $length)."</small>";
+                    }
+                else
+                    {
+                        //méthode pour prendre tout le contenu de la page Web inséré comme URL dans l'argument
+                        $home_wiki_film =file_get_contents('https://fr.wikipedia.org/wiki/'.$film_wiki.'_(film)');
+
+                        //position numérique d’où part le synopsis de la page choisie
+                        $start = stripos($home_wiki_film, $synopsis_string_start)+strlen($synopsis_string_start);
+
+                        //position numérique d’où se termine le synopsis de la page choisie
+                        $end = stripos($home_wiki_film, $synopsis_string_end, $start);
+
+                        //longueur numérique du synopsis de la page choisie
+                        $length = $end - $start;
+                        
+                        //titre à  afficher + text synopsis
+                        $synopsis = "<h4>Synopsis de le film: ".$this." </h4>";
+                        $synopsis .= "<small>".substr($home_wiki_film, $start, $length)."</small>";
+
+                    }
+                    
+                //imprime de la synopsis    
                 echo $synopsis;
             }
     }
