@@ -127,12 +127,14 @@ class Film
                 //longueur numérique du synopsis de la page choisie
                 $length = $end - $start;
 
+                //titre de le synopsis
+                $synopsis_title =   "<h4>Synopsis de le film: ".$this." </h4>";
+
                 //controle sur la page
                 if($length>0)
                     {
-                        //titre à  afficher + text synopsis
-                        $synopsis = "<h4>Synopsis de le film: ".$this." </h4>";
-                        $synopsis .= "<small>".substr($home_wiki_film, $start, $length)."</small>";
+                        //text synopsis
+                        $synopsis =         "<small>".substr($home_wiki_film, $start, $length)."</small>";
                     }
                 else
                     {
@@ -149,13 +151,13 @@ class Film
                         $length = $end - $start;
                         
                         //titre à  afficher + text synopsis
-                        $synopsis = "<h4>Synopsis de le film: ".$this." </h4>";
-                        $synopsis .= "<small>".substr($home_wiki_film, $start, $length)."</small>";
+                        $synopsis = "<small>".substr($home_wiki_film, $start, $length)."</small>";
 
                     }
-                    
-                //imprime de la synopsis    
-                echo $synopsis;
+
+                //imprime de la synopsis
+                echo $synopsis_title;    
+                echo strip_tags($synopsis, '<p>');
             }
     }
 
