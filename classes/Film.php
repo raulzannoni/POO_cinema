@@ -89,10 +89,20 @@ class Film
         //methode pour afficher les infos de le film
         public function getInfo()
             {
-                $result =   "<br>***************************************************************<br><br>".
-                            $this." est un film ".$this->_filmType->getGenre()." réalisé par le réalisateur "
-                            .$this->_director->__toString().", sorti dans l'année ".$this->getDateSortie()->format('Y').".<br><br>
-                            Le casting de ".$this." est le suivante:<br><br>"; 
+                if($this->_director->getSexe() == 'femme')
+                    {
+                        $result =   "<br>***************************************************************<br><br>".
+                                    $this." est un film ".$this->_filmType->getGenre()." réalisé par la réalisatrice "
+                                    .$this->_director->__toString().", sorti dans l'année ".$this->getDateSortie()->format('Y').".<br><br>
+                                    Le casting de ".$this." est le suivante:<br><br>";
+                    }
+                else
+                    {
+                        $result =   "<br>***************************************************************<br><br>".
+                                    $this." est un film ".$this->_filmType->getGenre()." réalisé par le réalisateur "
+                                    .$this->_director->__toString().", sorti dans l'année ".$this->getDateSortie()->format('Y').".<br><br>
+                                    Le casting de ".$this." est le suivante:<br><br>";
+                    }               
                             foreach($this->_associations as $key => $association)
                                 {
                                     $result .=  strval($key + 1).") ".$association->getActor().
