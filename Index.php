@@ -125,29 +125,4 @@ spl_autoload_register(function ($class_name)
     $Film_Alien->getSynopsis();
     $Film_Beatiful_Mind->getSynopsis();
 
-    // tries of getting synopsis from specifief url
-    /*
-    $synopsis_string = 'Synopsis">modifier le code</a><span class="mw-editsection-bracket">]</span></span></h2>';
-    $synopsis_string_end = '<span class="mw-headline" id="Fiche_technique">Fiche technique</span>';
-    $home = file_get_contents('https://fr.wikipedia.org/wiki/Alien');
-
-    $start = stripos($home, $synopsis_string)+strlen($synopsis_string);
-
-    $end = stripos($home, $synopsis_string_end, $start);
-
-    $length = $end - $start;
-
-    $homeSection = substr($home, $start, $length);
-
-    echo $length; //13940
-    if($length>0)
-        {
-            echo $homeSection;
-        }
-        else 
-        {
-            echo "bubu";
-        }
-    //*/
-
 ?>
