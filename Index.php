@@ -120,17 +120,25 @@ spl_autoload_register(function ($class_name)
     $John_Miller->getActors();
     $Spiderman->getActors();
 
-    /* tries of getting synopsis from specifief url
-    $home = file_get_contents('https://fr.wikipedia.org/wiki/Spider-Man_(film)#Synopsis');
-    $start = stripos($home, 'id="Synopsis"');
 
-    $end = stripos($home, '<h2>', $offset = $start);
+    $Film_Forrest_Gump->getSynopsis();
+
+    // tries of getting synopsis from specifief url
+    /*
+    $synopsis_string = 'Synopsis">modifier le code</a><span class="mw-editsection-bracket">]</span></span></h2>';
+    
+    $home = file_get_contents('https://fr.wikipedia.org/wiki/Forrest_Gump');
+
+    $start = stripos($home, $synopsis_string)+strlen($synopsis_string);
+
+    $end = stripos($home, '<h2>', $start);
 
     $length = $end - $start;
 
     $homeSection = substr($home, $start, $length);
 
+    echo $length; //13940
     echo $homeSection;
-    */
+    //*/
 
 ?>
