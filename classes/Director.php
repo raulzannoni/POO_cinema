@@ -21,8 +21,16 @@ class Director extends Person
         //methode pour afficher la filmographie de le directeur
         public function getFilmographie()
             {
-                $result =   "<br>***************************************************************<br><br>".
-                            $this." est un réalisateur qui a realisé les films suivantes:<br><br>"; 
+                if($this->getSexe() == 'femme')
+                    {
+                        $result =   "<br>***************************************************************<br><br>".
+                                    $this." est un réalisatrice qui a realisé les films suivantes:<br><br>"; 
+                    }
+                else
+                    {
+                        $result =   "<br>***************************************************************<br><br>".
+                                    $this." est une réalisateur qui a realisé les films suivantes:<br><br>"; 
+                    }        
                             foreach($this->_films as $key => $film)
                                 {
                                     $result .=  strval($key + 1).") ".$film.
