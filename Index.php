@@ -11,7 +11,7 @@ spl_autoload_register(function ($class_name)
     });
 
     //creaton de le genre de film possible
-    $SF = new FilmType("SF");
+    $SF = new FilmType("Sci-Fi");
     $Drama = new FilmType("Dramatique");
     $Aventure = new FilmType("Aventure");
     $Action = new FilmType("Action");
@@ -97,7 +97,8 @@ spl_autoload_register(function ($class_name)
     $Tom_Hanks->getFilmographie();
     $Russel_Crowe->getFilmographie();
     $Harrison_Ford->getFilmographie();
-
+    $Connie_Nielsen->getFilmographie();
+    $Sean_Young->getFilmographie();
 
     //info de chaque film
     $Film_Blade_Runner->getInfo();
