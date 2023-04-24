@@ -121,7 +121,7 @@ spl_autoload_register(function ($class_name)
     $John_Miller->getActors();
     $Spiderman->getActors();
 
-
+    //synopsis de les film suivantes (dans wiki.fr)
     $Film_Forrest_Gump->getSynopsis();
     $Film_Alien->getSynopsis();
     $Film_Beatiful_Mind->getSynopsis();

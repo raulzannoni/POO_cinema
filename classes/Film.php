@@ -165,9 +165,20 @@ class Film
 
                     }
 
-                //imprime de la synopsis
-                echo $synopsis_title;    
-                echo strip_tags($synopsis, '<p>');
+                //imprime de le titre de la synopsis
+                echo $synopsis_title;
+
+                //effacement de le tag dans la synopsis    
+                $synopsis = strip_tags($synopsis, '<p>');
+
+                //effacement de les references dans la synopsis
+                for($i = 0; $i < 100; $i++)
+                    {
+                        $synopsis = str_replace("[".strval($i)."]", "", $synopsis);
+                    }
+                
+                //imprime de la synopsis    
+                echo $synopsis;
             }
     }
 
