@@ -126,4 +126,6 @@ spl_autoload_register(function ($class_name)
     $Film_Alien->getSynopsis();
     $Film_Beatiful_Mind->getSynopsis();
 
+    
+    
 ?>
