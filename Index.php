@@ -126,7 +126,34 @@ spl_autoload_register(function ($class_name)
     $Film_Alien->getSynopsis();
     $Film_Beatiful_Mind->getSynopsis();
 
+    
+    $array_film = array( 1994 => $Film_Forrest_Gump, 1979 => $Film_Alien, 2001 => $Film_Beatiful_Mind);
+    
+    /*
+    function compare($a, $b)
+                {
+                    //
+                    if($a == $b)
+                        {
+                            return 0;
+                        }
+                    //
+                    return ($a < $b) ? -1 : 1;
+                }
 
+    foreach($array_film as $key => $value)
+                    {
+                        echo $value." $key";
+                        echo "<br>";
+                    }
+    uasort($array_film, "compare");
+    foreach($array_film as $key => $value)
+                    {
+                        echo $value." $key";
+                        echo "<br>";
+                    }
+    
+    //       */    
     
     
 ?>
