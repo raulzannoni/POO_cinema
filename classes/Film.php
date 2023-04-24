@@ -104,6 +104,7 @@ class Film
                 //partition de les heures et de les minutes dans un tableau vide
                 $arrayH_M = explode(":", $heures_minutes_string);
 
+                //casting en entiére des heures et des minutes
                 $heure = (int) $arrayH_M[0];
                 $minute = (int) $arrayH_M[1];
 
