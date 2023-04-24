@@ -131,6 +131,7 @@ class Film
                 //retourne de la chaine de la durée de le film en heures et minutes
                 return $heures_minutes;
             }
+            
 
         //methode pour afficher les infos de le film
         public function getInfo()
