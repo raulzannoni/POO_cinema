@@ -36,6 +36,10 @@ class Film
             {
                 $this->_date_sortie = $date_sortie;
             }
+        public function setDuration($duration)
+            {
+                $this->_durée = $duration;
+            }
         public function setDirector($director)
             {
                 $this->_director = $director;
@@ -54,6 +58,10 @@ class Film
         public function getDateSortie()
             {
                 return $this->_date_sortie;
+            }
+        public function getDuration()
+            {
+                return $this->_durée;
             }
         public function getDirector()
             {
@@ -85,31 +93,75 @@ class Film
             {
                 return $this->_titre;
             }
+            
+        //methode pour convertir la durée de le film en minute -> heures:minutes
+        public function getHours_Minutes()
+            {
+                //format heures:minutes
+                //mktime: retourne le timestamp UNIX d'une date
+                $heures_minutes_string = date('G:i', mktime(0, $this->getDuration()));
+                
+                //partition de les heures et de les minutes dans un tableau vide
+                $arrayH_M = explode(":", $heures_minutes_string);
+
+                $heure = (int) $arrayH_M[0];
+                $minute = (int) $arrayH_M[1];
+
+                //controle pour les unites des heures et des minutes
+                if($heure == 1 and $minute == 1)
+                    {
+                        $heures_minutes = "$heure heure et $minute minute";
+
+                    }
+                elseif($heure == 1)
+                    {
+                        $heures_minutes = "$heure heure et $minute minutes";
+
+                    }
+                elseif($minute == 1)
+                    {
+                        $heures_minutes = "$heure heures et $minute minute";
+                    }
+                else    
+                    {
+                        $heures_minutes = "$heure heures et $minute minutes";
+                    }
+                
+                //retourne de la chaine de la durée de le film en heures et minutes
+                return $heures_minutes;
+            }
 
         //methode pour afficher les infos de le film
         public function getInfo()
             {
+                //controle de le sexe de le realisateur
                 if($this->_director->getSexe() == 'femme')
                     {
                         $result =   "<br>***************************************************************<br><br>".
-                                    $this." est un film ".$this->_filmType->getGenre()." réalisé par la réalisatrice "
-                                    .$this->_director->__toString().", sorti dans l'année ".$this->getDateSortie()->format('Y').".<br><br>
-                                    Le casting de ".$this." est le suivante:<br><br>";
+                                    $this." est un film ".$this->_filmType->getGenre().
+                                    " réalisé par la réalisatrice ".$this->_director->__toString();
                     }
                 else
                     {
                         $result =   "<br>***************************************************************<br><br>".
-                                    $this." est un film ".$this->_filmType->getGenre()." réalisé par le réalisateur "
-                                    .$this->_director->__toString().", sorti dans l'année ".$this->getDateSortie()->format('Y').".<br><br>
-                                    Le casting de ".$this." est le suivante:<br><br>";
-                    }               
+                                    $this." est un film ".$this->_filmType->getGenre().
+                                    " réalisé par le réalisateur ".$this->_director->__toString();
+                    }
+                
+                //ajoute de la durée e de la date de sortie
+                $result .=  ", de la durée de ".$this->getHours_Minutes().
+                            ", sorti dans l'année ".$this->getDateSortie()->format('Y').".<br><br>
+                            Le casting de ".$this." est le suivante:<br><br>";
+
+                //ajoute de le casting de film               
                             foreach($this->_associations as $key => $association)
                                 {
                                     $result .=  strval($key + 1).") ".$association->getActor().
                                                 ", dans le role de ".$association->getRole()."; <br>";
                                 }
                 $result .=  "<br>***************************************************************<br><br>";
-            
+                
+                //imprime de les infos de le film
                 echo $result;
             }
         
