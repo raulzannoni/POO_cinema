@@ -81,11 +81,9 @@ class Film
         //methode pour ajouter une association (FILM - ACTOR - ROLE) dans l'objet film
         public function addAssociation(Association $new_association)
             {
-                //vérifier que le film correspond à l’association spécifique de ce film
-                if($new_association->getFilm() == $this)
-                    {
+               
                         $this->_associations[] = $new_association;
-                    }
+                    
             }
         
         //methode pour imprimer l'objet
@@ -97,6 +95,7 @@ class Film
         //methode pour convertir la durée de le film en minute -> heures:minutes
         public function getHours_Minutes()
             {
+ 
                 //format heures:minutes
                 //mktime: retourne le timestamp UNIX d'une date
                 $heures_minutes_string = date('G:i', mktime(0, $this->getDuration()));
@@ -108,26 +107,30 @@ class Film
                 $heure = (int) $arrayH_M[0];
                 $minute = (int) $arrayH_M[1];
 
+
+                $heureS = ($heure > 1) ? "heures" : "heure";
+                $minuteS = ($minute > 1) ? "minutes" : "minute";
                 //controle pour les unites des heures et des minutes
-                if($heure == 1 and $minute == 1)
-                    {
-                        $heures_minutes = "$heure heure et $minute minute";
+                // if($heure == 1 and $minute == 1)
+                //     {
+                //         $heures_minutes = "$heure heure et $minute minute";
 
-                    }
-                elseif($heure == 1)
-                    {
-                        $heures_minutes = "$heure heure et $minute minutes";
+                //     }
+                // elseif($heure == 1)
+                //     {
+                //         $heures_minutes = "$heure heure et $minute minutes";
 
-                    }
-                elseif($minute == 1)
-                    {
-                        $heures_minutes = "$heure heures et $minute minute";
-                    }
-                else    
-                    {
-                        $heures_minutes = "$heure heures et $minute minutes";
-                    }
-                
+                //     }
+                // elseif($minute == 1)
+                //     {
+                //         $heures_minutes = "$heure heures et $minute minute";
+                //     }
+                // else    
+                //     {
+                //         $heures_minutes = "$heure heures et $minute minutes";
+                //     }
+                $heures_minutes = "$heure $heureS et $minute $minuteS";
+
                 //retourne de la chaine de la durée de le film en heures et minutes
                 return $heures_minutes;
             }
@@ -141,13 +144,13 @@ class Film
                     {
                         $result =   "<br>***************************************************************<br><br>".
                                     $this." est un film ".$this->_filmType->getGenre().
-                                    " réalisé par la réalisatrice ".$this->_director->__toString();
+                                    " réalisé par la réalisatrice ".$this->_director;
                     }
                 else
                     {
                         $result =   "<br>***************************************************************<br><br>".
                                     $this." est un film ".$this->_filmType->getGenre().
-                                    " réalisé par le réalisateur ".$this->_director->__toString();
+                                    " réalisé par le réalisateur ".$this->_director;
                     }
                 
                 //ajoute de la durée e de la date de sortie
