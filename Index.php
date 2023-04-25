@@ -28,11 +28,12 @@ spl_autoload_register(function ($class_name)
 
     //creation de les films 
     $Film_Alien = new Film("Alien", "01-01-1979", 117, $Ridley_Scott, $SF);
-    $Film_Blade_Runner = new Film("Blade Runner", "01-01-1982", 111, $Ridley_Scott, $SF);
     $Film_Gladiator = new Film("Gladiator", "01-01-2000", 155, $Ridley_Scott, $Drama);
+    $Film_Blade_Runner = new Film("Blade Runner", "01-01-1982", 111, $Ridley_Scott, $SF);
     $Film_Indiana_Jones = new Film("Indiana Jones - Les Aventuriers de l'arche perdue", "01-01-1981", 115, $Steven_Spielberg, $Aventure);
     $Film_Soldat_Ryan = new Film("Il faut sauver le soldat Ryan", "01-01-1998", 163, $Steven_Spielberg, $Drama);
     $Film_Minority_Report = new Film("Minority Report", "01-01-2002", 145, $Steven_Spielberg, $SF);
+    $Film_Robin_de_Bois = new Film("Robin de Bois", "01-01-2010", 140, $Ridley_Scott, $Aventure);
     $Film_Retour_Futur = new Film("Retour vers le futur", "01-01-1985", 116, $Robert_Zemeckis, $SF);
     $Film_Forrest_Gump = new Film("Forrest Gump", "01-01-1994", 142, $Robert_Zemeckis, $Drama);
     $Film_Cast_Away = new Film("Seul au monde", "01-01-2000", 143, $Robert_Zemeckis, $Drama);
@@ -67,9 +68,10 @@ spl_autoload_register(function ($class_name)
     $Rachel = new Role("Rachel");
     $Roy_Batty = new Role("Roy Batty");
     $Spiderman = new Role ("SpiderMan");
+    $Robin_Hood = new Role("Robin Hood");
 
     //creation de les associations FILM, ACTEUR, ROLE
-    $association_Blade_Runner_1 = new Association($Film_Blade_Runner, $Harrison_Ford, $Rick_Deckard);
+    $associationBladeRunner1 = new Association($Film_Blade_Runner, $Harrison_Ford, $Rick_Deckard);
     $association_Blade_Runner_2 = new Association($Film_Blade_Runner, $Sean_Young, $Rachel);
     $association_Blade_Runner_3 = new Association($Film_Blade_Runner, $Rutger_Hauer, $Roy_Batty);
 
@@ -80,6 +82,8 @@ spl_autoload_register(function ($class_name)
     $association_Indiana_Jones_1 = new Association($Film_Indiana_Jones, $Harrison_Ford, $Indiana_Jones);
 
     $association_Soldat_Ryan_1 = new Association($Film_Soldat_Ryan, $Tom_Hanks, $John_Miller);
+
+    $association_Robin_de_Bois_1 = new Association($Film_Robin_de_Bois, $Russel_Crowe, $Robin_Hood);
 
     $association_Forrest_Gump_1 = new Association($Film_Forrest_Gump, $Tom_Hanks, $Forrest_Gump);
 
@@ -92,7 +96,7 @@ spl_autoload_register(function ($class_name)
     $association_Amazing_Spiderman_1 = new Association($Film_Amazing_Spiderman, $Andrew_Garfield, $Spiderman);
 
     $association_Spiderman_Homecoming_1 = new Association($Film_Spiderman_Homecoming, $Tom_Holland, $Spiderman);
-
+    
     //info de chaque acteurs
     $Tom_Hanks->getFilmographie();
     $Russel_Crowe->getFilmographie();
@@ -104,14 +108,14 @@ spl_autoload_register(function ($class_name)
     $Film_Blade_Runner->getInfo();
     $Film_Forrest_Gump->getInfo();
     $Film_Gladiator->getInfo();
-
+    
 
     //info de les filmographies de chaque realisateur
     $Ridley_Scott->getFilmographie();
     $Steven_Spielberg->getFilmographie();
     $Robert_Zemeckis->getFilmographie();
 
-
+    
     //info de les films appartenant à chaque genre de film
     $SF->getFilms(); 
     $Drama->getFilms(); 

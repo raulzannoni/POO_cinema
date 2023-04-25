@@ -19,34 +19,37 @@ class Director extends Person
                 //
                 $date_film = (int) $new_film->getDateSortie()->format('Y');
                 $this->_films[$date_film]= $new_film;
-
+                //$this->_films = array_reverse($this->_films);
             }
         
         //methode pour trier les films par rapport de la date de sortie (+récent - -récent)
         public function trierFilm(array $films)
-        {                
+        {      
+                      
             //function pour ranger deux elements (a et b) en ordre plus petit - plus grand 
-            function compare($a, $b)
-                {
-                    //
-                    if($a == $b)
-                        {
-                            return 0;
-                        }
-                    //
-                    return ($a < $b) ? -1 : 1;
-                }
+            
                     
             //trier l'array de film
-            uasort ($films, "compare");
-            return $films;
+            uasort ($films, function ($a,$b) {
+                //
+                if($a == $b)
+                    {
+                        return 0;
+                    }
+                //
+                return ($a < $b) ? -1 : 1;
+            });
+            
+            //le nouveau tableau de film est ordonne (plus recent, moins recent) 
+            $this->_films = array_reverse($films);
         }
         
         
         //methode pour afficher la filmographie de le directeur
         public function getFilmographie()
             {
-                //$this->_films = $this->trierFilm($this->_films);
+                //appel de le methode pour trier les film par la date de sortie
+                $this->trierFilm($this->_films);
 
                 if($this->getSexe() == 'femme')
                     {
